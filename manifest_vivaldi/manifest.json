@@ -15,15 +15,6 @@
 		"16": "icons/16.png"
 	},
 	"permissions": [ "tabs", "sessions", "chrome://favicon/" ],
-
-	"sidebar_action": {
-		"default_icon": {
-			"19": "icons/16.png",
-			"38": "icons/38.png"
-		},
-		"default_panel": "sidebar.html",
-		"default_title": "Tree Tabs"
-	},
 	"commands": {
 		"goto_tab_above": {
 			"suggested_key": {
@@ -38,6 +29,9 @@
 			"description": "Go to tab below"
 		}
 	},
-	"options_page": "options.html",
+	"options_ui": {
+		"page": "options.html",
+		"open_in_tab": false
+	},
 	"version": "0.0.16"
 }

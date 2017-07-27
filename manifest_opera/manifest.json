@@ -1,5 +1,6 @@
 {
 	"manifest_version": 2,
+	"minimum_opera_version": "42",
 	"default_locale": "en",
 	"background": {
 		"scripts": [ "background.js" ],
@@ -38,14 +39,5 @@
 		"default_title": "Tree Tabs"
 	},
 	"options_page": "options.html",
-	"applications": {
-		"gecko": {
-			"id": "TreeTabs@jagiello.it"
-		}
-	},
-	"options_ui": {
-		"page": "options.html",
-		"open_in_tab":true
-	},
 	"version": "0.0.16"
 }

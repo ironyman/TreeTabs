@@ -37,7 +37,6 @@
 		"default_panel": "sidebar.html",
 		"default_title": "Tree Tabs"
 	},
-	"options_page": "options.html",
 	"applications": {
 		"gecko": {
 			"id": "TreeTabs@jagiello.it",
@@ -46,7 +45,7 @@
 	},
 	"options_ui": {
 		"page": "options.html",
-		"open_in_tab":true
+		"open_in_tab": true
 	},
 	"version": "0.0.16"
 }
