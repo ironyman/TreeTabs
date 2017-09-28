@@ -16,6 +16,10 @@
 	},
 	"permissions": [ "tabs", "sessions", "<all_urls>" ],
 	"commands": {
+		"_execute_sidebar_action": {
+			"suggested_key": { "default": "F1" },
+			"description": "Open TreeTabs"
+		},
 		"right_tree_tab": {
 			"suggested_key": {
 				"default": "Ctrl+Shift+Right"
