@@ -305,15 +305,84 @@ function ActivatePrevTab(){
 
 }
 
+function ActivateNextSiblingTab(){
+	const toTab = $(".active").next()[0];
+	chrome.tabs.update(parseInt(toTab.id), { active: true });
+}
+
+function ActivatePreviousSiblingTab(){
+	const toTab = $(".active").prev()[0];
+	chrome.tabs.update(parseInt(toTab.id), { active: true });
+}
+
+function ActivateParentTab(){
+	const toTab = $(".active").parent().parent()[0];
+	chrome.tabs.update(parseInt(toTab.id), { active: true });
+}
+
+function ActivateChildTab(){
+	const toTab = $(".active").children().last().children()[0];
+	chrome.tabs.update(parseInt(toTab.id), { active: true });
+}
+
+function MoveNextSiblingTab(){
+	const toTab = $(".active").next()[0];
+	$(".active").insertAfter(toTab);
+	updateBrowserTabPosition();
+}
+
+function MovePreviousSiblingTab(){
+	const toTab = $(".active").prev()[0];
+	$(".active").insertBefore(toTab);
+	updateBrowserTabPosition();
+}
+
+function MoveParentTab(){
+	const toTab = $(".active").parent().parent()[0];
+	if (toTab.tagName === "BODY") return;
+	$(".active").insertAfter(toTab);
+	RefreshExpandStates();
+	updateBrowserTabPosition();
+}
+
+function MoveChildTab(){
+	var prevTab = $(".active").prev();
+	$("#ch" + prevTab[0].id).append($(".active"));
+	RefreshExpandStates();
+	updateBrowserTabPosition();
+}
+
 function DropTargetsSendToFront(){
 	if (DropTargetsInFront == false){
 		$(".drop_target").show();
 		DropTargetsInFront = true;
 	}
 }
+
 function DropTargetsSendToBack(){
 	if (DropTargetsInFront){
 		$(".drop_target").hide();
 		DropTargetsInFront = false;
 	}
+}
+
+function getChildTabIds(tab) {
+	var tabIds = [];
+	tab.each(function() {
+		tabIds.push(parseInt(this.id));
+		if ($("#ch" + this.id).children().length > 0) {
+			$($("#ch" + this.id).find(".tab")).each(function() {
+				tabIds.push(parseInt(this.id));
+			});
+		}
+	});
+	return tabIds;
+}
+
+function updateBrowserTabPosition() {
+	var counter = 0;
+	$(".tab").each(function(){
+		chrome.tabs.move(parseInt(this.id), { index: counter });
+		++counter;
+	});
 }

@@ -14,24 +14,75 @@
 		"19": "icons/16.png",
 		"16": "icons/16.png"
 	},
-	"permissions": [ "tabs", "sessions", "chrome://favicon/" ],
+	"permissions": [ "tabs", "sessions", "<all_urls>" ],
 	"commands": {
-		"goto_tab_above": {
+		"right_tree_tab": {
 			"suggested_key": {
-				"default": "Alt+1"
+				"default": "Ctrl+Shift+Right"
 			},
-			"description": "Go to tab above"
+			"description": "Go to next sibling tab"
 		},
-		"goto_tab_below": {
+		"left_tree_tab": {
 			"suggested_key": {
-				"default": "Alt+2"
+				"default": "Ctrl+Shift+Left"
 			},
-			"description": "Go to tab below"
+			"description": "Go to previous sibling tab"
+		},
+		"up_tree_tab": {
+			"suggested_key": {
+				"default": "Ctrl+Shift+Up"
+			},
+			"description": "Go to parent tab"
+		},
+		"down_tree_tab": {
+			"suggested_key": {
+				"default": "Ctrl+Shift+Down"
+			},
+			"description": "Go to first child tab"
+		},
+		"move_right_tree_tab": {
+			"suggested_key": {
+				"default": "Alt+Shift+Right"
+			},
+			"description": "Go to next sibling tab"
+		},
+		"move_left_tree_tab": {
+			"suggested_key": {
+				"default": "Alt+Shift+Left"
+			},
+			"description": "Go to previous sibling tab"
+		},
+		"move_up_tree_tab": {
+			"suggested_key": {
+				"default": "Alt+Shift+Up"
+			},
+			"description": "Go to parent tab"
+		},
+		"move_down_tree_tab": {
+			"suggested_key": {
+				"default": "Alt+Shift+Down"
+			},
+			"description": "Go to first child tab"
+		}
+	},
+	"sidebar_action": {
+		"default_icon": {
+			"19": "icons/16.png",
+			"38": "icons/38.png"
+		},
+		"default_panel": "sidebar.html",
+		"default_title": "Tree Tabs"
+	},
+	"options_page": "options.html",
+	"applications": {
+		"gecko": {
+			"id": "TreeTabs@jagiello.it",
+			"strict_min_version": "54.0"
 		}
 	},
 	"options_ui": {
 		"page": "options.html",
-		"open_in_tab": false
+		"open_in_tab":true
 	},
 	"version": "0.0.16"
 }

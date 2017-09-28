@@ -1,13 +1,26 @@
 // **********         CHROME EVENTS         ***************
 
 chrome.commands.onCommand.addListener(function(command) {
+	const commands = {
+		goto_tab_above: ActivatePrevTab,
+		goto_tab_below: ActivateNextTab,
+		right_tree_tab: ActivateChildTab,
+		left_tree_tab: ActivateParentTab,
+		up_tree_tab: ActivatePreviousSiblingTab,
+		down_tree_tab: ActivateNextSiblingTab,
+		move_right_tree_tab: MoveChildTab,
+		move_left_tree_tab: MoveParentTab,
+		move_up_tree_tab: MovePreviousSiblingTab,
+		move_down_tree_tab: MoveNextSiblingTab
+	};
 	chrome.windows.getLastFocused({windowTypes: ["normal"]}, function(window) {
 		if (CurrentWindowId == window.id){
-			if (command == "goto_tab_above"){
-				ActivatePrevTab();
-			}
-			if (command == "goto_tab_below"){
-				ActivateNextTab();
+			if (command in commands) {
+				try {
+					commands[command]();
+				} catch (e) {
+					console.log(e);
+				}
 			}
 		}
 	});

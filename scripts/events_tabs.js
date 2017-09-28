@@ -147,7 +147,8 @@ function SetTabEvents() {
 		}
 		
 		RefreshExpandStates();
-
+		updateBrowserTabPosition();
+		
 		setTimeout(function() {
 			timeout = false;
 			DragNode = undefined;
